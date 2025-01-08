@@ -1,8 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/spGisbluJYy
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
@@ -18,23 +13,28 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
 import { SVGProps } from "react";
 import Image from "next/image";
+import { Input } from "@/components/ui/input";
+// import { img1 } from "../../assets/apple.png";
+// import { img2 } from "../../assets/google.png";
+// import { img3 } from "../../assets/uber.png";
+// import { img3 } from "../../assets/zomato.png";
 
 export default function SingleProduct() {
   return (
-    <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-6">
+    <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-20">
       <div className="grid gap-3 items-start">
         <div className="grid gap-4">
           <Image
-            src="/placeholder.svg"
+            src="../../assets/giftcard-placeholder.svg"
             alt="Product Image"
-            width={600}
-            height={900}
-            className="aspect-[2/3] object-cover border w-full rounded-lg overflow-hidden"
+            width={400}
+            height={400}
+            className=" object-cover border w-full rounded-lg overflow-hidden"
           />
           <div className="hidden md:grid grid-cols-4 gap-3">
             <button className="border hover:border-primary rounded-lg overflow-hidden transition-colors">
               <Image
-                src="/placeholder.svg"
+                src="../../assets/giftcard-placeholder.svg"
                 alt="Preview thumbnail"
                 width={100}
                 height={120}
@@ -44,7 +44,7 @@ export default function SingleProduct() {
             </button>
             <button className="border hover:border-primary rounded-lg overflow-hidden transition-colors">
               <Image
-                src="/placeholder.svg"
+                src="../../assets/giftcard-placeholder.svg"
                 alt="Preview thumbnail"
                 width={100}
                 height={120}
@@ -54,7 +54,7 @@ export default function SingleProduct() {
             </button>
             <button className="border hover:border-primary rounded-lg overflow-hidden transition-colors">
               <Image
-                src="/placeholder.svg"
+                src="../../assets/giftcard-placeholder.svg"
                 alt="Preview thumbnail"
                 width={100}
                 height={120}
@@ -64,7 +64,7 @@ export default function SingleProduct() {
             </button>
             <button className="border hover:border-primary rounded-lg overflow-hidden transition-colors">
               <Image
-                src="/placeholder.svg"
+                src="../../assets/giftcard-placeholder.svg"
                 alt="Preview thumbnail"
                 width={100}
                 height={120}
@@ -78,10 +78,10 @@ export default function SingleProduct() {
       <div className="grid gap-4 md:gap-10 items-start">
         <div className="grid gap-4">
           <h1 className="font-bold text-3xl lg:text-4xl">
-            Acme Circles T-Shirt
+            Google PlayStore Card
           </h1>
           <div>
-            <p>60% combed ringspun cotton/40% polyester jersey tee.</p>
+            {/* <p>60% combed ringspun cotton/40% polyester jersey tee.</p> */}
           </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-0.5">
@@ -96,6 +96,7 @@ export default function SingleProduct() {
           <div className="text-4xl font-bold">$99</div>
         </div>
         <form className="grid gap-4 md:gap-10">
+          {/* Here Color starts  
           <div className="grid gap-2">
             <Label htmlFor="color" className="text-base">
               Color
@@ -127,7 +128,9 @@ export default function SingleProduct() {
                 Blue
               </Label>
             </RadioGroup>
-          </div>
+          </div> */}
+
+          {/* Here Size starts 
           <div className="grid gap-2">
             <Label htmlFor="size" className="text-base">
               Size
@@ -170,13 +173,75 @@ export default function SingleProduct() {
                 XL
               </Label>
             </RadioGroup>
-          </div>
+          </div> */}
+
+          {/* Here Price starts  */}
           <div className="grid gap-2">
+            <Label htmlFor="price" className="text-base">
+              Price
+            </Label>
+            <RadioGroup
+              id="price"
+              defaultValue="5"
+              className="flex items-center gap-2"
+            >
+              <Label
+                htmlFor="price-5"
+                className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-muted"
+              >
+                <RadioGroupItem id="price-5" value="5" />$ 5
+              </Label>
+              <Label
+                htmlFor="price-10"
+                className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-muted"
+              >
+                <RadioGroupItem id="price-10" value="s" />$ 10
+              </Label>
+              <Label
+                htmlFor="price-20"
+                className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-muted"
+              >
+                <RadioGroupItem id="price-20" value="20" />$ 20
+              </Label>
+              <Label
+                htmlFor="price-50"
+                className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-muted"
+              >
+                <RadioGroupItem id="price-50" value="50" />$ 50
+              </Label>
+              <Label
+                htmlFor="price-100"
+                className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-muted"
+              >
+                <RadioGroupItem id="price-100" value="100" />$ 100
+              </Label>
+            </RadioGroup>
+          </div>
+          {/* Custom Price Input Field */}
+          <div className="grid w-full max-w-sm items-center gap-1.5">
+            <Label htmlFor="currency">Amount</Label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <span className="text-muted-foreground">$</span>
+              </div>
+              <Input
+                id="currency"
+                type="number"
+                min={0}
+                max={500}
+                step={1}
+                placeholder="Enter amount"
+                className="pl-9"
+              />
+            </div>
+          </div>
+
+          <div className="grid gap-2  ">
             <Label htmlFor="quantity" className="text-base">
               Quantity
             </Label>
             <Select defaultValue="1">
-              <SelectTrigger className="w-24">
+              <SelectTrigger className="w-full max-w-sm items-center">
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>
@@ -213,6 +278,7 @@ export default function SingleProduct() {
             <li>Ribbed crew neckline</li>
           </ul>
         </div>
+        {/* Customer Reviews Section 
         <div className="grid gap-4">
           <h2 className="font-bold text-lg">Customer Reviews</h2>
           <div className="flex gap-4">
@@ -277,77 +343,9 @@ export default function SingleProduct() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="grid gap-4">
-          <h2 className="font-bold text-lg">Related Products</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="relative overflow-hidden rounded-lg group">
-              <Link href="#" className="absolute inset-0 z-10" prefetch={false}>
-                <span className="sr-only">View</span>
-              </Link>
-              <Image
-                src="/placeholder.svg"
-                alt="Related Product 1"
-                width={400}
-                height={300}
-                className="object-cover w-full h-60"
-                style={{ aspectRatio: "400/300", objectFit: "cover" }}
-              />
-              <div className="p-4 bg-background">
-                <h3 className="text-lg font-semibold md:text-xl">
-                  Acme Prism Tee
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Cozy Chromatic Blend
-                </p>
-                <h4 className="text-base font-semibold md:text-lg">$99</h4>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-lg group">
-              <Link href="#" className="absolute inset-0 z-10" prefetch={false}>
-                <span className="sr-only">View</span>
-              </Link>
-              <Image
-                src="/placeholder.svg"
-                alt="Related Product 2"
-                width={400}
-                height={300}
-                className="object-cover w-full h-60"
-                style={{ aspectRatio: "400/300", objectFit: "cover" }}
-              />
-              <div className="p-4 bg-background">
-                <h3 className="text-lg font-semibold md:text-xl">
-                  Acme Shorts
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Quick-Dry Swim Shorts
-                </p>
-                <h4 className="text-base font-semibold md:text-lg">$34.99</h4>
-              </div>
-            </div>
-            <div className="relative overflow-hidden rounded-lg group">
-              <Link href="#" className="absolute inset-0 z-10" prefetch={false}>
-                <span className="sr-only">View</span>
-              </Link>
-              <Image
-                src="/placeholder.svg"
-                alt="Related Product 3"
-                width={400}
-                height={300}
-                className="object-cover w-full h-60"
-                style={{ aspectRatio: "400/300", objectFit: "cover" }}
-              />
-              <div className="p-4 bg-background">
-                <h3 className="text-lg font-semibold md:text-xl">Acme Pants</h3>
-                <p className="text-sm text-muted-foreground">
-                  Lightweight Cotton Pants
-                </p>
-                <h4 className="text-base font-semibold md:text-lg">$299.99</h4>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div> */}
       </div>
+      {/* Related Product */}
     </div>
   );
 }

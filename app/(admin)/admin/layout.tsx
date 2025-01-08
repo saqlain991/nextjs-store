@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import {
   LayoutDashboard,
   Package,
@@ -12,19 +12,21 @@ import {
   Menu,
   X,
   User,
-} from 'lucide-react';
+  Contact,
+} from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from "@/components/ui/dropdown-menu";
 
 const sidebarItems = [
-  { icon: LayoutDashboard, label: 'Dashboard', href: '/admin' },
-  { icon: Package, label: 'Products', href: '/admin/products' },
-  { icon: Mail, label: 'Newsletter', href: '/admin/newsletter' },
-  { icon: MessageSquare, label: 'Enquiry', href: '/admin/enquiry' },
+  { icon: LayoutDashboard, label: "Dashboard", href: "/admin" },
+  { icon: Package, label: "Products", href: "/admin/products" },
+  { icon: Mail, label: "Newsletter", href: "/admin/newsletter" },
+  { icon: Contact, label: "Contact", href: "/admin/contact" },
+  { icon: MessageSquare, label: "Enquiry", href: "/admin/enquiry" },
 ];
 
 export default function AdminLayout({
@@ -74,7 +76,7 @@ export default function AdminLayout({
       {/* Sidebar */}
       <aside
         className={`fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-white border-r transform transition-transform duration-200 ease-in-out lg:translate-x-0 ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <nav className="p-4">
@@ -87,8 +89,8 @@ export default function AdminLayout({
                     href={item.href}
                     className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
                       pathname === item.href
-                        ? 'bg-primary text-primary-foreground'
-                        : 'text-muted-foreground hover:bg-muted'
+                        ? "bg-primary text-primary-foreground"
+                        : "text-muted-foreground hover:bg-muted"
                     }`}
                   >
                     <Icon className="h-5 w-5" />
