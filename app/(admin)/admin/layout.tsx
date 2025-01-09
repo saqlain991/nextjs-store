@@ -13,6 +13,7 @@ import {
   X,
   User,
   Contact,
+  TestTube,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -23,8 +24,9 @@ import {
 
 const sidebarItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/admin" },
-  { icon: Package, label: "Products", href: "/admin/products" },
   { icon: Mail, label: "Newsletter", href: "/admin/newsletter" },
+  { icon: Package, label: "Products", href: "/admin/products" },
+  { icon: TestTube, label: "Test", href: "/admin/tests" },
   { icon: Contact, label: "Contact", href: "/admin/contact" },
   { icon: MessageSquare, label: "Enquiry", href: "/admin/enquiry" },
 ];
